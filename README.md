@@ -19,6 +19,8 @@ The system follows a Lambda Architecture, splitting the workload between a high-
 2. **The Worker:** A Python process that pulls domains, scrapes metadata (Meta tags/Titles), and runs the NLP Classifier.
 3. **The Manager:** Updates the `final_blocklist.txt` and reloads CoreDNS if a threat is found.
 
+![System Architecture Workflow](research/metrics/Workflow.png)
+
 ## 🧠 AI Performance & Research
 
 The core intelligence is derived from a DistilBERT model trained on a custom dataset of 120,000+ samples, including the *Big Porn Dataset*, *WikiText*, and *AG News*.
@@ -37,9 +39,16 @@ We evaluated the model against completely unseen "Zero-Day" datasets to ensure r
 
 The model demonstrates **zero leakage** for unsafe content (1.00 Recall) and successfully distinguishes medical terms from explicit content.
 
-| Confusion Matrix | ROC Curve |
-| --- | --- |
-|  |  |
+#### Confusion Matrix & ROC Curve
+<p float="left">
+  <img src="research/metrics/Confusion_matrix.png" width="45%" />
+  <img src="research/metrics/Roc_curve.png" width="45%" /> 
+</p>
+
+#### F1 Score Analysis
+![F1 Score](research/metrics/F1_score.png)
+
+
 
 > *Note: See `research/notebooks/Nlp_model_v2.ipynb` for full training code.*
 
