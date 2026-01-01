@@ -18,7 +18,7 @@ ADMIN_USERNAME = "user1"
 ADMIN_PASSWORD = os.getenv("ADMIN_PASS", "admin")
 
 # --- FILE CONFIG ---
-BLOCK_DIR = "blocklists"
+BLOCK_DIR = "data/blocklists"
 LOG_DIR = "logs"
 QUERY_LOG = f"{LOG_DIR}/query.log"
 JUDGE_LOG = f"{LOG_DIR}/judge.log"
@@ -337,7 +337,7 @@ def run_judge_view(): return render_template_string(LOG_TEMPLATE)
 @login_required
 def stream_judge():
     def generate():
-        p = subprocess.Popen([sys.executable, '-u', "src/judge.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen([sys.executable, '-u', "src/ai_worker/judge.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         for l in iter(p.stdout.readline, b''): yield f"data: {l.decode('utf-8').strip()}\n\n"
         p.stdout.close()
     return Response(stream_with_context(generate()), mimetype='text/event-stream')

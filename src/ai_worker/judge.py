@@ -13,9 +13,9 @@ API_KEY = os.getenv("API_KEY")
 MODEL_NAME = "gemma-3-12b-it"
 
 # File Paths
-AI_BLOCKS_FILE = "blocklists/ai_blocks.txt"
-BLACKLIST_FILE = "blocklists/blacklist.txt"
-WHITELIST_FILE = "blocklists/whitelist.txt"
+AI_BLOCKS_FILE = "data/blocklists/ai_blocks.txt"
+BLACKLIST_FILE = "data/blocklists/blacklist.txt"
+WHITELIST_FILE = "data/blocklists/whitelist.txt"
 
 # Setup Client
 if not API_KEY:

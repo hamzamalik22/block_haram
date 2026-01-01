@@ -4,7 +4,7 @@ import datetime
 
 # --- CONFIGURATION ---
 # FIXED: Variable name is now consistent everywhere
-BLOCKLIST_DIR = "blocklists"
+BLOCKLIST_DIR = "data/blocklists"
 
 FINAL_FILE = f"{BLOCKLIST_DIR}/final_blocklist.txt"
 AI_FILE = f"{BLOCKLIST_DIR}/ai_blocks.txt"

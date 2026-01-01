@@ -11,12 +11,12 @@ REDIS_PORT = 6379
 QUEUE_NAME = "dns_traffic"
 
 # Paths
-BLOCK_DIR = "blocklists"
+BLOCK_DIR = "data/blocklists"
 AI_LOG_FILE = f"{BLOCK_DIR}/ai_blocks.txt"
 WHITELIST_FILE = f"{BLOCK_DIR}/whitelist.txt"
 BLACKLIST_FILE = f"{BLOCK_DIR}/blacklist.txt"
 FINAL_FILE = f"{BLOCK_DIR}/final_blocklist.txt"
-MODEL_PATH = "model"
+MODEL_PATH = "nlp_model"
 
 # --- LOGGING SETUP ---
 logging.basicConfig(

@@ -10,7 +10,7 @@
         rcode NXDOMAIN
     }
 
-    hosts /path/to/your/blocklist.txt {
+    hosts data/blocklists/final_blocklist.txt {
         fallthrough
     }
 }
