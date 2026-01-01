@@ -1,0 +1,33 @@
+# 1. Standard DNS (Port 53)
+.:53 {
+    bind 127.0.0.1
+    forward . 8.8.8.8 1.1.1.1
+    log
+    errors
+
+    # CANARY RULE
+    template IN ANY use-application-dns.net {
+        rcode NXDOMAIN
+    }
+
+    hosts /path/to/your/blocklist.txt {
+        fallthrough
+    }
+}
+
+# 2. Android Private DNS (DoT - Port 853)
+# tls://.:853 {
+#     tls /path/to/fullchain.pem /path/to/privkey.pem
+# 
+#     template IN ANY use-application-dns.net {
+#         rcode NXDOMAIN
+#     }
+# 
+#     hosts /path/to/your/blocklist.txt {
+#         fallthrough
+#     }
+# 
+#     forward . 8.8.8.8 1.1.1.1
+#     log
+#     errors
+# }
